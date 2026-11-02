@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>拆书｜工作、消费主义和新穷人</title>
+<meta name="description" content="齐格蒙特·鲍曼《工作、消费主义和新穷人》一页读懂：从工作伦理到消费美学，再到过剩的人。">
+<style>
+  :root{
+    --paper:#faf8f4;
+    --card:#fffefb;
+    --ink:#24211d;
+    --ink-2:#4a443c;
+    --muted:#8a8175;
+    --line:#e6dfd4;
+    --accent:#a8432f;
+    --accent-soft:#f5ebe6;
+    --green:#3d6b5a;
+    --green-soft:#eef3ef;
+    --shadow:0 1px 2px rgba(60,45,30,.05),0 8px 24px -12px rgba(60,45,30,.18);
+    --max:880px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+    font-size:16.5px;line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    padding:72px 0 44px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#f6f1e8 0%,var(--paper) 100%);
+  }
+  .kicker{
+    font-size:.78rem;letter-spacing:.22em;color:var(--accent);
+    text-transform:uppercase;font-weight:700;margin-bottom:18px;
+  }
+  h1.book{
+    font-family:"Songti SC","Source Han Serif SC",SimSun,"Times New Roman",serif;
+    font-size:clamp(2rem,5.6vw,3.1rem);line-height:1.28;margin:0 0 6px;
+    letter-spacing:.02em;font-weight:700;
+  }
+  .sub{
+    font-family:"Songti SC","Source Han Serif SC",SimSun,serif;
+    color:var(--muted);font-size:1rem;letter-spacing:.04em;margin-bottom:26px;
+  }
+  .oneline{
+    background:var(--card);border-left:4px solid var(--accent);
+    padding:18px 22px;border-radius:0 10px 10px 0;box-shadow:var(--shadow);
+    font-size:1.05rem;line-height:1.85;margin:0;
+  }
+  .oneline b{color:var(--accent)}
+  .meta{
+    margin-top:22px;font-size:.84rem;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:6px 18px;
+  }
+  .meta span::before{content:"／ ";opacity:.4}
+
+  /* ---------- TOC ---------- */
+  nav.toc{
+    margin:34px 0 0;padding:20px 22px;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;
+  }
+  nav.toc h2{
+    font-size:.8rem;letter-spacing:.18em;color:var(--muted);
+    margin:0 0 12px;font-weight:700;text-transform:uppercase;
+  }
+  nav.toc ol{margin:0;padding:0;list-style:none;counter-reset:toc;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:4px 20px}
+  nav.toc li{counter-increment:toc;font-size:.93rem}
+  nav.toc a{
+    color:var(--ink-2);text-decoration:none;display:block;
+    padding:4px 0;border-bottom:1px dotted transparent;
+  }
+  nav.toc a::before{
+    content:counter(toc,decimal-leading-zero);color:var(--accent);
+    font-family:"SF Mono",Consolas,monospace;font-size:.76rem;margin-right:9px;
+  }
+  nav.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  /* ---------- Body ---------- */
+  main{padding:8px 0 40px}
+  main h2{
+    font-family:"Songti SC","Source Han Serif SC",SimSun,serif;
+    font-size:clamp(1.34rem,3.2vw,1.62rem);margin:64px 0 8px;
+    padding-top:26px;border-top:1px solid var(--line);letter-spacing:.02em;
+  }
+  main h2:first-child{border-top:0;padding-top:0;margin-top:34px}
+  main h3{
+    font-size:1.06rem;margin:34px 0 8px;color:var(--ink);
+    font-family:"Songti SC","Source Han Serif SC",SimSun,serif;
+  }
+  main h3 .num{color:var(--accent);font-family:"SF Mono",Consolas,monospace;font-size:.9rem;margin-right:8px}
+  main p{margin:12px 0;color:var(--ink-2)}
+  main strong{color:var(--ink);background:linear-gradient(transparent 62%,#f7e2d8 62%);padding:0 1px}
+  main ul,main ol{padding-left:1.3em;color:var(--ink-2)}
+  main li{margin:6px 0}
+  main li::marker{color:var(--accent)}
+  main a{color:var(--accent)}
+  main hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+
+  blockquote{
+    margin:20px 0;padding:14px 20px;background:var(--green-soft);
+    border-left:4px solid var(--green);border-radius:0 10px 10px 0;
+    color:#2f4a40;font-size:.97rem;
+  }
+  blockquote p{margin:0;color:inherit}
+  blockquote cite{display:block;margin-top:8px;font-size:.82rem;color:var(--green);opacity:.8;font-style:normal}
+
+  /* tables */
+  .tbl{overflow-x:auto;margin:20px 0;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--card);
+    border-radius:10px;overflow:hidden;box-shadow:var(--shadow);min-width:520px}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:#f3ede3;font-weight:700;color:var(--ink);white-space:nowrap;font-size:.88rem;letter-spacing:.02em}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#fdfaf5}
+  td:first-child{font-weight:600;color:var(--green);white-space:nowrap}
+
+  /* mermaid */
+  .diagram{
+    margin:26px 0;padding:22px 12px;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    overflow-x:auto;text-align:center;
+  }
+  .diagram pre.mermaid{margin:0;background:transparent;text-align:center}
+  .diagram .cap{
+    margin:14px 6px 0;font-size:.82rem;color:var(--muted);text-align:center;
+  }
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:22px 0}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow);
+  }
+  .card h4{margin:0 0 6px;font-size:.98rem;color:var(--accent);font-family:"Songti SC",SimSun,serif}
+  .card p{margin:0;font-size:.88rem;line-height:1.75;color:var(--ink-2)}
+
+  /* checklist */
+  .check{list-style:none;padding:0;display:grid;gap:10px}
+  .check li{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:13px 16px 13px 46px;position:relative;font-size:.95rem;
+  }
+  .check li::before{
+    content:"?";position:absolute;left:15px;top:12px;width:20px;height:20px;
+    display:grid;place-items:center;border-radius:50%;background:var(--accent);
+    color:#fff;font-size:.75rem;font-weight:700;
+  }
+
+  /* aside note */
+  .note{
+    background:#fbf6ec;border:1px dashed #ddcfb4;border-radius:10px;
+    padding:14px 18px;font-size:.88rem;color:#7a6544;margin:20px 0;
+  }
+
+  footer{
+    border-top:1px solid var(--line);padding:34px 0 60px;
+    color:var(--muted);font-size:.84rem;line-height:1.9;
+  }
+  footer a{color:var(--muted)}
+
+  .top{
+    position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:50%;
+    background:var(--accent);color:#fff;border:0;cursor:pointer;font-size:1.1rem;
+    box-shadow:0 6px 18px -6px rgba(168,67,47,.6);opacity:0;pointer-events:none;
+    transition:opacity .25s, transform .25s;transform:translateY(8px);
+  }
+  .top.on{opacity:1;pointer-events:auto;transform:none}
+
+  #loading{color:var(--muted);text-align:center;padding:60px 0;font-size:.9rem}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    header.hero{padding:48px 0 34px}
+    .diagram{padding:14px 4px}
+    table{min-width:480px}
+  }
+  @media print{
+    body{background:#fff}
+    nav.toc,.top,#loading{display:none}
+    .diagram,blockquote,table{box-shadow:none;break-inside:avoid}
+    main h2{break-after:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">拆书 · Book Breakdown</div>
+    <h1 class="book">工作、消费主义和新穷人</h1>
+    <div class="sub">Work, Consumerism and the New Poor　／　［英］齐格蒙特·鲍曼　著　郭楠　译</div>
+    <p class="oneline">
+      这本书只干一件事：回答一个问题——<b>穷人是怎么被社会“重新定义”的？</b>
+      答案不是“他们没钱”，而是：当社会从「需要劳动力」变成「需要消费者」，
+      穷人丧失了被需要的资格，于是从“后备军”变成了“多余的人”。
+    </p>
+    <div class="meta">
+      <span>上海社会科学院出版社 · 2021</span>
+      <span>全书 6 章 · 3 个部分</span>
+      <span>约 8 分钟读完</span>
+    </div>
+    <nav class="toc">
+      <h2>目录</h2>
+      <ol id="toc"></ol>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="doc">
+  <div id="loading">正在排版…</div>
+</main>
+
+<footer class="wrap">
+  <p>本页是对《工作、消费主义和新穷人》（齐格蒙特·鲍曼 著，郭楠 译，上海社会科学院出版社 2021）的阅读整理，
+  用于个人学习与讨论，不替代原书。原文全文见仓库 <code>工作、消费主义和新穷人.md</code>。</p>
+  <p><a href="https://github.com/Finnlove/work-and-poor">github.com/Finnlove/work-and-poor</a></p>
+</footer>
+
+<button class="top" id="top" title="回到顶部">↑</button>
+
+<!-- ======================= 内容源（Markdown） ======================= -->
+<script type="text/markdown" id="md">
+## 一、先看一张图：全书的骨架
+
+鲍曼的整本书，其实就是一条线：**社会需要什么样的人，穷人就被定义成什么。**
+
+```mermaid
+graph LR
+    A["生产者社会<br/>18—20 世纪中叶<br/><br/>需要：劳动力"] --> B["消费者社会<br/>20 世纪后期<br/><br/>需要：消费欲望"] --> C["过剩时代<br/>21 世纪<br/><br/>需要：不需要你"]
+
+    A -.-> A1["穷人＝劳动力后备军"]
+    B -.-> B1["穷人＝有缺陷的消费者"]
+    C -.-> C1["穷人＝冗余人口"]
+
+    classDef s fill:#f6efe6,stroke:#c9bfae,stroke-width:1.5px,color:#24211d
+    classDef t fill:#eef3ef,stroke:#a8c0b3,stroke-width:1.5px,color:#2f4a40
+    class A,B,C s
+    class A1,B1,C1 t
+```
+
+<p class="cap">三个阶段，三次身份改写。变的不是穷人，是社会对他们的需求。</p>
+
+一句话版本：**工作伦理把“不工作”变成道德罪过；消费美学把“买不起”变成人格缺陷；全球化把“没用”变成“多余”。**
+
+## 二、穷人身份的两次改写
+
+```mermaid
+timeline
+    title 一个穷人，在两百年里换过三次名字
+    18—20 世纪中叶 · 生产者社会
+        : 劳动力后备军
+        : 只要你肯干，就有位置
+        : 不工作 ＝ 堕落
+    20 世纪后期 · 消费者社会
+        : 有缺陷的消费者
+        : 你买不起，就是你的错
+        : 不消费 ＝ 失败
+    21 世纪 · 过剩时代
+        : 冗余人口 / 底层阶级
+        : 社会不需要你，也不打算要你
+        : 穷 ＝ 危险
+```
+
+这三行，是全书最值得记住的东西。**“穷人”从来不是一个经济事实，而是一个社会定义。**
+
+## 三、三个阶段摆在一起看
+
+| 维度 | 生产者社会 | 消费者社会 | 过剩时代 |
+|---|---|---|---|
+| 社会的主要任务 | 把农民变成工人 | 把工人变成顾客 | 处理不需要的人 |
+| 对人的要求 | 肯吃苦、守纪律 | 有欲望、会花钱 | 别出事 |
+| 穷人的身份 | 劳动力后备军 | 有缺陷的消费者 | 冗余人口、底层阶级 |
+| 穷人的“出路” | 进工厂 | 多挣钱去消费 | 基本没有 |
+| 主流态度 | 教化、规训 | 羞辱、嫌弃 | 隔离、驱逐 |
+| 一句话 | 你不干活，社会罚你 | 你买不起，社会笑你 | 你存在，社会嫌你 |
+
+## 四、核心逻辑链：为什么会走到今天
+
+这一节是全书推理的骨架，看懂这条链，全书的结论就自动出来了。
+
+```mermaid
+graph TD
+    S1["① 生产力过剩<br/>不再需要那么多人"] --> S2["② 经济靠消费驱动<br/>不靠生产驱动"]
+    S2 --> S3["③ 人从生产者<br/>变成消费者"]
+    S3 --> S4["④ 价值标准变了<br/>会买 ＞ 会做"]
+    S4 --> S5["⑤ 买不起的人<br/>成了「有缺陷的消费者」"]
+    S5 --> S6["⑥ 失去社会功能<br/>也就失去道德位置"]
+    S6 --> S7["⑦ 救济变成管控<br/>贫穷变成治安问题"]
+    S7 --> S8["⑧ 被逐出<br/>「我们」的道德账本"]
+
+    classDef main fill:#f6efe6,stroke:#c9bfae,stroke-width:1.5px,color:#24211d
+    classDef bad fill:#f7e7e2,stroke:#d8a99c,stroke-width:1.5px,color:#7a2e1f
+    class S1,S2,S3,S4 main
+    class S5,S6,S7,S8 bad
+```
+
+<p class="cap">注意第 ⑥ 步：不是“他们变坏了”，是“他们不再被计入我们的道德账本”。这是全书最锋利的一刀。</p>
+
+## 五、六个必须懂的概念
+
+<div class="cards">
+
+<div class="card">
+<h4>工作伦理</h4>
+<p>工业早期被发明出来的观念：工作本身是美德，不工作是堕落。<strong>它的真正功能不是让人勤劳，而是让“不工作”变成一件可耻的事。</strong></p>
+</div>
+
+<div class="card">
+<h4>消费美学</h4>
+<p>消费社会里，工作、物品、甚至人，都按“审美体验”来评判。你做什么不重要，你消费什么才说明你是谁。</p>
+</div>
+
+<div class="card">
+<h4>有缺陷的消费者</h4>
+<p>鲍曼给新穷人下的定义。不是“买不起一切”，而是<strong>买不起“该买的”</strong>——被排除在社会生活之外，因此感到羞耻。</p>
+</div>
+
+<div class="card">
+<h4>底层阶级 underclass</h4>
+<p>它不是一个阶级，而是<strong>被排除在阶级体系之外的人</strong>：没有位置、没有贡献、不被期待救赎。</p>
+</div>
+
+<div class="card">
+<h4>从「失业」到「过剩」</h4>
+<p>“失业”意味着还会回来，是后备军；“过剩”意味着永远不需要，是冗余。<strong>一个词的变化，取消了一个人的未来。</strong></p>
+</div>
+
+<div class="card">
+<h4>社会国家 → 安全国家</h4>
+<p>国家职能从“承担社会责任”退化为“维持治安秩序”。贫穷不再是社会问题，而是安全问题。</p>
+</div>
+
+</div>
+
+## 六、六章逐章拆
+
+### <span class="num">01</span>工作的意义：创造工作伦理
+
+**这一章在问：为什么“不工作”会被当成一种道德缺陷？**
+
+工厂刚出现时，自由人不愿意进厂——不是懒，是没必要。于是“工作伦理”被造出来，它有两个前提：一是人必须做别人认为有价值的事才能活；二是安于现状是可耻的。
+
+这套观念最狠的地方，是它把“你是谁”绑定在“你做什么”上。**工作不只是谋生手段，成了人的身份证。**
+
+小节点：驱使人们去工作／要么工作，要么死亡／制造生产者／从“更好”到“更多”。
+
+> 第一章的结论：工作伦理不是经济需要，是统治需要。它让穷人为自己的贫穷感到羞愧。
+
+### <span class="num">02</span>从工作伦理到消费美学
+
+**全书转折点。社会的要求，从“你能生产多少”变成了“你能消费多少”。**
+
+当产能不再是瓶颈，社会需要的不再是劳动力，而是欲望。于是“制造生产者”让位给“制造消费者”。
+
+工作也被重新评判：不再看它对社会的贡献，而看它带来的体验、趣味和身份感——像挑商品一样挑职业。**“使命”成了少数精英的特权**，大多数人只能把工作当谋生。
+
+然后，穷人的定义被彻底改写：**他们不是失业的劳动力，而是不合格的顾客。**
+
+> 第二章的结论：在消费者社会，贫穷不是“拥有的少”，是“参与的少”。羞辱感由此而来。
+
+### <span class="num">03</span>福利国家的兴衰
+
+**这一章在问：福利国家为什么在它最成功的时候垮掉？**
+
+答案是一个悖论：**福利越有效，越少人觉得需要它。**
+
+中产一旦觉得自己不需要福利，纳税意愿就下降；福利被重新叙述成“养懒人”。于是支持基础瓦解——不是财政垮了，是合法性垮了。
+
+```mermaid
+graph LR
+    W1["福利有效投用"] --> W2["中产觉得<br/>用不着了"] --> W3["缴税意愿<br/>下降"] --> W4["政治支持<br/>瓦解"] --> W5["福利收缩<br/>再难扩张"] --> W1
+
+    classDef cyc fill:#f6efe6,stroke:#c9bfae,stroke-width:1.5px,color:#24211d
+    class W1,W2,W3,W4,W5 cyc
+```
+
+小节点：服务大众，还是服务特定人群／福利国家的衰败／心满意足的大多数？／招致毁灭的成功。
+
+> 第三章的结论：福利国家的死因不是没钱，是“不再被需要”。
+
+### <span class="num">04</span>工作伦理和新穷人
+
+**全书最扎人的一章：社会如何把贫穷改写成罪过。**
+
+几个动作，一步比一步狠：
+
+1. **定居者与游牧者**——精英和资本可以流动，穷人被钉在原地。流动性本身成了阶层标志。
+2. **从“失业”到“过剩”**——话术一变，人的未来就被取消了。
+3. **“底层阶级”的浮现**——把各种原因不同的贫困，浓缩成一个“低等人”的形象。
+4. **用于底层阶级的工作伦理**——继续对穷人讲“要努力”，其实是让他们自我责备。
+5. **贫穷即犯罪**——社会问题被翻译成治安问题。
+6. **逐出道德义务的世界**——穷人不再属于“我们”，因此不再值得义务。
+
+> 第四章的结论：新穷人不是“还没富起来的人”，是“被移出账本的人”。
+
+### <span class="num">05</span>全球化之下的工作与过剩
+
+**这一章把镜头拉远：过剩人口不只是一个国家的问题。**
+
+历史上，多余的人可以被“输出”到殖民地；今天这条通道关了。资本全球流动，劳动力却被国界锁住。
+
+结果是：各国都开始把“社会问题”重新定义为“法律与秩序问题”，国家职能从**社会国家**转向**安全国家**——不再问“怎么帮他们”，只问“怎么管住他们”。
+
+小节点：殖民主义，还是剩余劳动力输出／解决本土问题的全球化策略之兴衰／工作和贫穷问题的全球化新维度／社会问题转为法律和秩序问题／从社会国家到“安全国家”。
+
+> 第五章的结论：当“帮助”变成“防范”，穷人就正式从公民变成了风险。
+
+### <span class="num">06</span>新穷人的前景
+
+**最后一章，鲍曼给出的不是安慰，是一条换轨的建议。**
+
+他先承认现实：穷人已经失去了位置——**没有位置，就没有道德义务**。社会找不到“为什么该管他们”的理由。
+
+然后他提出两条路的对比：
+
+```mermaid
+graph TD
+    Q{"怎么看待<br/>一个人的价值？"} --> A["路线一：工作伦理<br/>你有工作，你才配得上尊重"]
+    Q --> B["路线二：生活道德<br/>你活着，你就配得上尊重"]
+
+    A --> A1["结果：<br/>没工作的人<br/>天然低人一等"]
+    B --> B1["结果：<br/>生存权与工作脱钩<br/>（如基本收入）"]
+
+    classDef q fill:#f6efe6,stroke:#c9bfae,stroke-width:1.5px,color:#24211d
+    classDef g fill:#eef3ef,stroke:#a8c0b3,stroke-width:1.5px,color:#2f4a40
+    classDef r fill:#f7e7e2,stroke:#d8a99c,stroke-width:1.5px,color:#7a2e1f
+    class Q q
+    class B,B1 g
+    class A,A1 r
+```
+
+他明确站在后者：**把“以工作定义人”换成“以生活本身衡量人”**。书里讨论的具体方案之一，是把收入与就业脱钩（基本收入）。
+
+> 第六章的结论：救穷人不是给他们工作，是先承认他们不需要用工作来换取做人的资格。
+
+## 七、几句可以直接记住的话
+
+> 在消费者社会中，大规模的生产不再需要大规模劳动，于是，曾经作为“劳动力后备军”的穷人被重铸为“有缺陷的消费者”。这使他们失去了有用的社会功能，这对穷人的社会地位和改善机会产生了深远的影响。
+> <cite>—— 导言</cite>
+
+> “底层阶级”让人联想到那些被排除在阶级体系之外的人，他们没任何机会，也无法被重新接纳；他们没有容身之所，对社会没有任何有益的贡献，原则上不值得救赎。
+> <cite>—— 第四章</cite>
+
+> 每一个有缺陷的消费者都在孤独中舔舐自己的伤口……他们不知道社会能帮上什么忙，也不期望能获得帮助，他们只能指望通过彩票来改变自己的命运。
+> <cite>—— 第四章</cite>
+
+## 八、读完，你应该能回答这六个问题
+
+<ul class="check">
+<li>为什么“努力就能脱贫”这句话，在今天越来越不成立？</li>
+<li>“失业”和“过剩”，差别到底在哪里？</li>
+<li>福利国家为什么会自己把自己搞垮？</li>
+<li>为什么贫穷越来越像治安问题，而不是社会问题？</li>
+<li>“底层阶级”这个词，是谁在用、用来干什么？</li>
+<li>如果不用工作来定义一个人的价值，那该用什么？</li>
+</ul>
+
+如果这六个问题你都能用自己的话答一遍，这本书就算读进去了。
+
+## 九、接下来读什么
+
+| 方向 | 书目 |
+|---|---|
+| 同一作者，同一脉络 | 鲍曼《现代性与大屠杀》《流动的现代性》《被围困的社会》 |
+| 贫穷的民族志 | 布迪厄《世界的苦难》、威尔逊《真正的穷人》 |
+| 工作的意义 | 格雷伯《毫无意义的工作》 |
+| 消费社会 | 鲍德利亚《消费社会》、凡勃伦《有闲阶级论》 |
+
+<div class="note">
+本页为阅读整理，观点归属原书作者。页码与原文引用请以纸质书或正版电子书为准。
+</div>
+</script>
+
+<!-- ======================= 渲染 ======================= -->
+<script src="assets/marked.min.js"></script>
+<script src="assets/mermaid.min.js"></script>
+<script>
+(function () {
+  // ---------- 1. Markdown → HTML ----------
+  const src = document.getElementById('md').textContent;
+  const doc = document.getElementById('doc');
+  document.getElementById('loading').remove();
+
+  const renderer = new marked.Renderer();
+  renderer.table = function (token) {
+    const head = token.header.map((c, i) =>
+      '<th' + (token.align[i] ? ' style="text-align:' + token.align[i] + '"' : '') + '>' + this.parser.parseInline(c.tokens) + '</th>'
+    ).join('');
+    const body = token.rows.map(function (row) {
+      return '<tr>' + row.map(function (cell, i) {
+        return '<td' + (token.align[i] ? ' style="text-align:' + token.align[i] + '"' : '') + '>' + this.parser.parseInline(cell.tokens) + '</td>';
+      }, this).join('') + '</tr>';
+    }, this).join('');
+    return '<div class="tbl"><table><thead><tr>' + head + '</tr></thead><tbody>' + body + '</tbody></table></div>';
+  };
+
+  marked.use({ renderer: renderer, gfm: true, breaks: false });
+  doc.innerHTML = marked.parse(src);
+
+  // ---------- 2. mermaid 代码块 → 图容器 ----------
+  doc.querySelectorAll('pre > code.language-mermaid').forEach(function (code) {
+    const pre = code.parentElement;
+    const box = document.createElement('div');
+    box.className = 'diagram';
+    const d = document.createElement('pre');
+    d.className = 'mermaid';
+    d.textContent = code.textContent.trim();
+    box.appendChild(d);
+    pre.replaceWith(box);
+  });
+
+  // ---------- 3. 生成目录 ----------
+  const toc = document.getElementById('toc');
+  doc.querySelectorAll('h2').forEach(function (h, i) {
+    const id = 'sec-' + (i + 1);
+    h.id = id;
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = h.textContent.replace(/^[一二三四五六七八九十]+、/, '');
+    li.appendChild(a);
+    toc.appendChild(li);
+  });
+
+  // ---------- 4. 渲染 mermaid ----------
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'loose',
+    theme: 'base',
+    fontFamily: '"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif',
+    themeVariables: {
+      fontSize: '15px',
+      primaryColor: '#f6efe6',
+      primaryTextColor: '#24211d',
+      primaryBorderColor: '#c9bfae',
+      secondaryColor: '#eef3ef',
+      tertiaryColor: '#fbf9f6',
+      lineColor: '#b07a68',
+      textColor: '#24211d',
+      mainBkg: '#f6efe6',
+      nodeBorder: '#c9bfae',
+      clusterBkg: '#fbf9f6',
+      clusterBorder: '#e6dfd4',
+      titleColor: '#24211d',
+      edgeLabelBackground: '#faf8f4',
+      actorBkg: '#f6efe6',
+      actorBorder: '#c9bfae',
+      actorTextColor: '#24211d',
+      signalColor: '#b07a68',
+      labelBackground: '#faf8f4'
+    },
+    flowchart: { htmlLabels: true, curve: 'basis', padding: 12, nodeSpacing: 30, rankSpacing: 36, useMaxWidth: true, wrappingWidth: 200 },
+    timeline: { useMaxWidth: true, padding: 8 },
+    sequence: { useMaxWidth: true }
+  });
+
+  try {
+    mermaid.run({ querySelector: '.diagram pre.mermaid' });
+  } catch (e) {
+    console.error('mermaid render failed', e);
+  }
+
+  // ---------- 5. 回到顶部 ----------
+  const btn = document.getElementById('top');
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', function () {
+    btn.classList.toggle('on', window.scrollY > 600);
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
